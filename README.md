@@ -4,6 +4,7 @@ Running the frontend (web)
 This should look familiar. First, navigate into the web directory and install all dependencies: // test6
 
 $ cd web
+
 $ npm install //Install all dependencies
 
 npm should start downloading everything it needs to build the app.
