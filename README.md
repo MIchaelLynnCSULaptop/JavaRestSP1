@@ -5,6 +5,7 @@ This should look familiar. First, navigate into the web directory and install al
 
 $ cd web
 $ npm install //Install all dependencies
+
 npm should start downloading everything it needs to build the app.
 
 To launch the app:
