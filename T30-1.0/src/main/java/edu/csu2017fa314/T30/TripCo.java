@@ -1,6 +1,6 @@
 package edu.csu2017fa314.T30;
-import edu.csu2017fa314.T30.Model.Model;
-import java.util.Arrays;
+import edu.csu2017fa314.T30.Controller.UserController;
+import edu.csu2017fa314.T30.Model.User;
 
 public class TripCo
 {
@@ -30,12 +30,9 @@ public class TripCo
    }
 
    public static void main(String[] args) {
-      Model model = new Model();
-      model.readData();
-      String[][] itin = model.buildItinerary();
-      for(int i = 0; i < itin.length; i++){
-         System.out.println(Arrays.toString(itin[i]));
-      }
+
+      new UserController(new User());
+
    }
 
 }
