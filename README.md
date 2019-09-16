@@ -1,19 +1,3 @@
-To use this project first make sure you have npm or yarn installed. These are dependency managers that will download everything you need for the project.
-
-Running the frontend (web)
-
-This should look familiar. First, navigate into the web directory and install all dependencies: 
-
-$ cd web
-
-$ npm install //Install all dependencies
-
-npm should start downloading everything it needs to build the app.
-
-To launch the app:
-
-$ npm run dev
-
 #Running the backend (server)
 
 You have the option of opening this in an IDE like IntelliJ or from the command line.
