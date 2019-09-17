@@ -2,6 +2,7 @@ package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
 import edu.csu2017fa314.T30.Model.Model;
+import edu.csu2017fa314.T30.View.Hello;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -17,49 +18,37 @@ import static spark.Spark.*;
 
 
 public class UserController {
-
+    VelocityEngine ve;
+    Properties props;
+    Model myModel;
+    Hello myHelloView;
+    Gson gson;
     int test = 0;
 
-    public String callme(Model myusers) {
 
-//        VelocityEngine ve = new VelocityEngine();
-//        Properties props = new Properties();
-//        props.put("file.resource.loader.path", "/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/resources/");
-//        ve.init(props);
-//
-//        Template t = ve.getTemplate("hello.vm");
-//        VelocityContext context = new VelocityContext();
-//        String templateVariable = "Hello Velocity!";
-//        context.put("message",templateVariable);  // put your template values here
-//        StringWriter writer = new StringWriter();
-//        t.merge(context, writer);
-//
-//        System.out.println(writer.toString()); // print the updated template as string
 
-        test++;
-        System.out.println(test);
-        System.out.println("Hello ");
-        myusers.readData();
-        Gson gson = new Gson();
-        String mybuiltItinerary = gson.toJson(myusers.buildItinerary());
-        return mybuiltItinerary;
-    }
-
-    public UserController(final Model myusers) {
+    public UserController() {
 
 //        // minium default to run
 //        get("/users", (request, response) -> {
 //            return new ModelAndView(new HashMap(), "hello.vm");
 //        }, new VelocityTemplateEngine());
 
+        ve = new VelocityEngine();
+        props = new Properties();
+        myModel = new Model();
+        myHelloView = new Hello();
+        gson = new Gson();
+        // without this you have to have the "hello.vm" in /main/resources/hello.vm
+        props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
+        ve.init(props);
+
         get("/users", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String templateVariable = "Hello Velocity!";
-            model.put("message", templateVariable);
-            return new ModelAndView(model, "hello.vm");
-
-        }, new VelocityTemplateEngine());
-
+            myModel.readData();
+            String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
+            myHelloView.setview(mybuiltItinerary);
+            return new ModelAndView(myHelloView.getview(), "hello.vm");
+        }, new VelocityTemplateEngine(ve));
 
         // get("/users", (req, res) -> callme(myusers));
 

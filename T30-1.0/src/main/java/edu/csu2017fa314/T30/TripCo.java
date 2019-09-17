@@ -32,7 +32,7 @@ public class TripCo
 
    public static void main(String[] args) {
 
-      new UserController(new Model());
+      new UserController();
 
    }
 
