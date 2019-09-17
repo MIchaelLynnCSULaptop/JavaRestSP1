@@ -31,7 +31,7 @@ public class UserController {
                     callme(myusers);
                     Map<String, Object> model = new HashMap<>();
                     model.put("hello", "Velocity World");
-                    return new ModelAndView(model, "hello.vm");
+                    return new ModelAndView(model, "hello.vt");
                 }, new VelocityTemplateEngine());
 
 
