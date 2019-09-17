@@ -27,9 +27,7 @@ public class Model
       format of the latitude and longitude columns
    */
    public void readData(){
-      System.out.print("csv filepath: ");
-      Scanner sc = new Scanner(System.in);
-      String csv_filepath = sc.nextLine();
+      String csv_filepath = "brews.csv";
       try (BufferedReader read = new BufferedReader(new FileReader(csv_filepath))) {
          String[] data;
          HashMap<String,Integer> arr_locations = new HashMap<String, Integer>();
