@@ -1,1 +1,7 @@
-<h1>$message</h1>
+<html>
+<body>
+    #set( $foo = "Velocity" )
+Hello $foo World!
+$message
+</body>
+</html>
