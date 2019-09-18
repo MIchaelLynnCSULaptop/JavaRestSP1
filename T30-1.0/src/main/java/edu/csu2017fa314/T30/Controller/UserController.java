@@ -10,6 +10,7 @@ import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -44,17 +45,35 @@ public class UserController {
         ve.init(props);
 
         get("/users", (request, response) -> {
-            myModel.readData();
-            String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
-            myHelloView.setview(mybuiltItinerary);
-            return new ModelAndView(myHelloView.getview(), "hello.vm");
+
+                    myModel.readData();
+                    String[][] testing = myModel.buildItinerary();
+                    String searchVal = "Echo Brewing Company";
+                    String[] result;
+
+                    for (int i = 0; i < testing.length ; i++)
+                    {
+                            if (testing[i][0].equals(searchVal)) {
+                                System.out.println(testing[i][0]);
+                                result = Arrays.copyOf(testing[i], 3);
+                                System.out.println(Arrays.toString(result));
+                        }
+                    }
+
+                    String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
+                    myHelloView.setview(mybuiltItinerary);
+                    return new ModelAndView(myHelloView.getview(), "hello.vm");
         }, new VelocityTemplateEngine(ve));
 
         // get("/users", (req, res) -> callme(myusers));
 
-        after((req, res) -> {
-            res.type("application/json");
-        });
+//        after((req, res) -> {
+//            res.type("application/json");
+//        });
+
+//        after((req, res) -> {
+//            res.type("text/html; charset=utf-8");
+//        });
 
 // more routes
     }
