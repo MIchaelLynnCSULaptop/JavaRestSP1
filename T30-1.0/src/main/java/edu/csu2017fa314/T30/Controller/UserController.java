@@ -2,6 +2,7 @@ package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
 import edu.csu2017fa314.T30.Model.Model;
+import edu.csu2017fa314.T30.Model.User;
 import edu.csu2017fa314.T30.View.Hello;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -44,24 +45,36 @@ public class UserController {
         props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
         ve.init(props);
 
+
+        post("/users", (request, response) ->{
+            response.type("application/json");
+            User user = new Gson().fromJson(request.body(), User.class);
+            System.out.println(user.id);
+            HashMap<String, Object> view = new HashMap<String, Object>();
+            view.put("message", "ok");
+            return new ModelAndView(myHelloView.getview(), "hello.vm");
+         }, new VelocityTemplateEngine(ve));
+
+
+
         get("/users", (request, response) -> {
 
                     myModel.readData();
                     String[][] testing = myModel.buildItinerary();
                     String searchVal = "Echo Brewing Company";
-                    String[] result;
+                    String[] result = new String[3];
 
+                    // get single object entry
                     for (int i = 0; i < testing.length ; i++)
                     {
                             if (testing[i][0].equals(searchVal)) {
-                                System.out.println(testing[i][0]);
                                 result = Arrays.copyOf(testing[i], 3);
-                                System.out.println(Arrays.toString(result));
                         }
                     }
-
-                    String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
-                    myHelloView.setview(mybuiltItinerary);
+                     // convert to json format
+                   // String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
+                     System.out.println(Arrays.toString(result));
+                    myHelloView.setview(testing, result);
                     return new ModelAndView(myHelloView.getview(), "hello.vm");
         }, new VelocityTemplateEngine(ve));
 
