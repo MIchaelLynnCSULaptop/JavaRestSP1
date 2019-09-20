@@ -1,3 +1,5 @@
+https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1.svg?token=aGqZALLZUKhc6eMrMJtK&branch=master
+
 #Running the backend (server)
 
 Install Java JDK
