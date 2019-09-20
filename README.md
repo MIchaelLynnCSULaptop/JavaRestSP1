@@ -1,4 +1,4 @@
-https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1.svg?token=aGqZALLZUKhc6eMrMJtK&branch=master
+[![Build Status](https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1.svg?token=aGqZALLZUKhc6eMrMJtK&branch=master)](https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1)
 
 #Running the backend (server)
 
