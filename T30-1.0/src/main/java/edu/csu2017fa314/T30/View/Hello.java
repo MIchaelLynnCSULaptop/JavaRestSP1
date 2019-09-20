@@ -28,6 +28,12 @@ public class Hello {
     public String test2() {
         return "test2";
     }
+
+
+    public String test3() {
+        return "test3";
+    }
+
     public void setview(String[][] data, String[] target) {
         view.put("message", target);
     }
