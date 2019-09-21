@@ -17,22 +17,6 @@ public class Hello {
         view.put("Hello", this);
     }
 
-    public void setview(String[][] data) {
-        view.put("message", data);
-    }
-
-    public String test() {
-        return "test";
-    }
-
-    public String test2() {
-        return "test2";
-    }
-
-
-    public String test3() {
-        return "test3";
-    }
 
     public void setview(String[][] data, String[] target) {
         view.put("message", target);
