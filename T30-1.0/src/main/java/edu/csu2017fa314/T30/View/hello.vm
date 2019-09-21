@@ -1,49 +1,34 @@
 <html>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
-    #set( $foo = "Velocity" )
-Hello $foo World!
-    #set($att_id = $message[0])
-    #set($att_type = $message[1])
-    #set($att_name = $message[2])
 
-Field1: <input type="text" id="field1"><br>
-
-<button onclick="myFunction()">Click me</button>
 <button type="button" onclick="JSONTest()">JSON</button>
 
-    $Hello.test()
 
 <script>
-    function myFunction() {
-        document.getElementById("field1").value = "$Hello.search("Echo Brewing Company")";
-    }
-</script>
 
-
-
-
-<script>
     JSONTest = function() {
 
-    var resultDiv = $("#resultDivContainer");
-    var myData = { id: 1012, email: "your-email@your-domain.com", firstName: "Mac", lastName: "Mason1" };
+    var myData = {
+        "id": "1012",
+        "email": "your-email@your-domain.com",
+        "firstName": "Mac",
+        "lastName": "Mason1"
+    };
 
+    // var me = JSON.stringify(myData)
+    // window.alert(me);
 
     $.ajax({
         url: "http://localhost:4567/users",
         type: "POST",
-        data: myData,
-        contentType: "application/json; charset=UTF-8", // send this type of data
         dataType: "json",  // expecting this type back
+        contentType: 'application/json',
+        data: JSON.stringify(myData),
     success: function (result) {
-    switch (result) {
-    case true:
-    processResponse(result);
-    break;
-    default:
-    resultDiv.html(result);
-    }
+        var myJSON = JSON.stringify(result);
+        window.alert(myJSON);
+        document.getElementById("demo").innerHTML = myJSON;
     },
     error: function (xhr, ajaxOptions, thrownError) {
     alert(xhr.status);
@@ -55,8 +40,13 @@ Field1: <input type="text" id="field1"><br>
 </script>
 
 <h1>My jQuery JSON Web Page</h1>
+<p id="demo"></p>
+<ul>
+    #foreach( $index in $message )
+        <li>$index</li>
+    #end
+</ul>
 
-<div id="resultDivContainer"></div>
 
 </body>
 </html>

@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import static spark.Spark.*;
+import static spark.route.HttpMethod.post;
 
 
 public class UserController {
@@ -50,10 +51,8 @@ public class UserController {
             response.type("application/json");
             User user = new Gson().fromJson(request.body(), User.class);
             System.out.println(user.id);
-            HashMap<String, Object> view = new HashMap<String, Object>();
-            view.put("message", "ok");
-            return new ModelAndView(myHelloView.getview(), "hello.vm");
-         }, new VelocityTemplateEngine(ve));
+            return new Gson().toJson(user);
+        });
 
 
 
@@ -73,7 +72,7 @@ public class UserController {
                     }
                      // convert to json format
                    // String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
-                     System.out.println(Arrays.toString(result));
+                     System.out.println(Arrays.toString(result) + "here");
                     myHelloView.setview(testing, result);
                     return new ModelAndView(myHelloView.getview(), "hello.vm");
         }, new VelocityTemplateEngine(ve));
