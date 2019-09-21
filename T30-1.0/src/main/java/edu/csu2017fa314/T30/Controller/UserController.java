@@ -37,14 +37,17 @@ public class UserController {
 //            return new ModelAndView(new HashMap(), "hello.vm");
 //        }, new VelocityTemplateEngine());
 
-        ve = new VelocityEngine();
-        props = new Properties();
+
         myModel = new Model();
         myHelloView = new Hello();
         gson = new Gson();
+
         // without this you have to have the "hello.vm" in /main/resources/hello.vm
-        props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
-        ve.init(props);
+       // ve = new VelocityEngine();
+       // props = new Properties();
+       // props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
+        //ve.init(props);
+        // "note pass return new VelocityTemplateEngine(!!!!!!!!!ve!!!!!!!!!!) into REST render to get new directory"
 
 
         post("/users", (request, response) ->{
@@ -54,7 +57,27 @@ public class UserController {
             return new Gson().toJson(user);
         });
 
+        get("/home", (request, response) -> {
 
+            myModel.readData();
+            String[][] testing = myModel.buildItinerary();
+            String searchVal = "Echo Brewing Company";
+            String[] result = new String[3];
+
+            // get single object entry
+            for (int i = 0; i < testing.length ; i++)
+            {
+                if (testing[i][0].equals(searchVal)) {
+                    result = Arrays.copyOf(testing[i], 3);
+                }
+            }
+            // convert to json format
+            // String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
+            System.out.println(Arrays.toString(result) + "here");
+            myHelloView.setview(testing, result);
+            return new VelocityTemplateEngine().render(
+                    new ModelAndView(myHelloView.getview(), "home.vm"));
+        });
 
         get("/users", (request, response) -> {
 
@@ -74,8 +97,10 @@ public class UserController {
                    // String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
                      System.out.println(Arrays.toString(result) + "here");
                     myHelloView.setview(testing, result);
-                    return new ModelAndView(myHelloView.getview(), "hello.vm");
-        }, new VelocityTemplateEngine(ve));
+                     return new VelocityTemplateEngine().render(
+                        new ModelAndView(myHelloView.getview(), "hello.vm"));
+
+        });
 
         // get("/users", (req, res) -> callme(myusers));
 

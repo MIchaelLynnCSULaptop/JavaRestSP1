@@ -3,7 +3,9 @@
 <body>
 
 <button type="button" onclick="JSONTest()">JSON</button>
-
+<form>
+    <button type="submit" formaction="http://localhost:4567/home">Click me</button>
+</form>
 
 <script>
 
@@ -46,7 +48,6 @@
         <li>$index</li>
     #end
 </ul>
-
 
 </body>
 </html>
