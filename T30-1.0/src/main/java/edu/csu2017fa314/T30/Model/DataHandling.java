@@ -31,6 +31,19 @@ public class DataHandling {
      return result;
     }
 
+    public String[] sort(String searchVal) {
+        String[] result = new String[3];
+
+        // get single object entry
+        for (int i = 0; i < data.length; i++) {
+            if (data[i][0].equals(searchVal)) {
+                result = Arrays.copyOf(data[i], 3);
+            }
+        }
+        Arrays.sort(result);
+        return result;
+    }
+
 
 
 

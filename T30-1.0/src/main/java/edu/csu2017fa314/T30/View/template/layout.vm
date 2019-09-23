@@ -3,9 +3,6 @@
 <body>
 
 
-    #include("template\header.vm")
-
-
 <script>
 
     JSONTestUser = function() {
@@ -40,16 +37,16 @@
 
 </script>
 
-
 <script>
 
-    JSONTestSortData = function() {
+    JSONTestGetData = function() {
 
         $.ajax({
-            url: "http://localhost:4567/sort",
+            url: "http://localhost:4567/get",
             type: "POST",
             success: function (result) {
-                document.getElementById("demo").innerHTML = result;
+                window.alert(result);
+                $("div#content").replaceWith(result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
@@ -61,15 +58,54 @@
 </script>
 
 
+<script>
+
+    JSONTestSortData = function() {
+
+        $.ajax({
+            url: "http://localhost:4567/sort",
+            type: "POST",
+            success: function (result) {
+                window.alert(result);
+                $("div#content").replaceWith(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    };
+
+</script>
+
+
+<div id="header">
+    ...some content that's to be updated Header...
+
+    #include("template\header.vm")
+
+</div>
+
 
 <p id="demo"></p>
 
+<div id="content">
+    $message
+    ...some content that's to be updated...
+    <ul>
+        #foreach( $index in $message )
+            <li>$index</li>
+        #end
+    </ul>
 
-<ul>
-    #foreach( $index in $message )
-        <li>$index</li>
-    #end
-</ul>
+</div>
+
+
+<div id="footer">
+    ...some content that's to be updated Footer...
+
+    #include("template\footer.vm")
+
 
 </body>
 </html>
