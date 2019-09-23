@@ -1,3 +1,6 @@
 <h1>My jQuery JSON Web Page</h1>
+<button type="button" onclick="JSONTestGetData()">JSONTestGetData</button>
 <button type="button" onclick="JSONTestUser()">JSONTestUser</button>
+<button type="button" onclick="JSONTestSearchData()">JSONTestSearchData</button>
 <button type="button" onclick="JSONTestSortData()">JSONTestSortData</button>
+<button type="button" onclick="JSONTestClearData()">JSONTestClearData</button>

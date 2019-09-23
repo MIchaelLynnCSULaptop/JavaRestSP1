@@ -19,20 +19,16 @@ public class UserController {
 
     public UserController() {
 
-//        // minium default to run
-//        get("/users", (request, response) -> {
-//            return new ModelAndView(new HashMap(), "main.vm");
-//        }, new VelocityTemplateEngine());
-
-        gson = new Gson();
+    gson = new Gson();
 
 
-        post("/user", (request, response) ->{
-            response.type("application/json");
-            User user = new Gson().fromJson(request.body(), User.class);
-            System.out.println(user.id);
-            return new Gson().toJson(user);
-        });
+    post("/user", (request, response) ->{
+        System.out.println("userhere");
+        response.type("application/json");
+        User user = new Gson().fromJson(request.body(), User.class);
+        System.out.println(user.id);
+        return new Gson().toJson(user);
+    });
 
-    }
+}
 }
