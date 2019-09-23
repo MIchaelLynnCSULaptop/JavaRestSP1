@@ -2,14 +2,13 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
 
-<button type="button" onclick="JSONTest()">JSON</button>
-<form>
-    <button type="submit" formaction="http://localhost:4567/home">Click me</button>
-</form>
+
+    #include("template\header.vm")
+
 
 <script>
 
-    JSONTest = function() {
+    JSONTestUser = function() {
 
     var myData = {
         "id": "1012",
@@ -22,7 +21,7 @@
     // window.alert(me);
 
     $.ajax({
-        url: "http://localhost:4567/users",
+        url: "http://localhost:4567/user",
         type: "POST",
         dataType: "json",  // expecting this type back
         contentType: 'application/json',
@@ -41,8 +40,31 @@
 
 </script>
 
-<h1>My jQuery JSON Web Page</h1>
+
+<script>
+
+    JSONTestSortData = function() {
+
+        $.ajax({
+            url: "http://localhost:4567/sort",
+            type: "POST",
+            success: function (result) {
+                document.getElementById("demo").innerHTML = result;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    };
+
+</script>
+
+
+
 <p id="demo"></p>
+
+
 <ul>
     #foreach( $index in $message )
         <li>$index</li>

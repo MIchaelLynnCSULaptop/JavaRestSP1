@@ -1,6 +1,7 @@
 package edu.csu2017fa314.T30;
+import edu.csu2017fa314.T30.Controller.DataController;
+import edu.csu2017fa314.T30.Controller.MainController;
 import edu.csu2017fa314.T30.Controller.UserController;
-import edu.csu2017fa314.T30.Model.Model;
 
 
 public class TripCo
@@ -31,9 +32,10 @@ public class TripCo
    }
 
    public static void main(String[] args) {
-
+      // routes
+      new MainController();
       new UserController();
-
+      new DataController();
    }
 
 }
