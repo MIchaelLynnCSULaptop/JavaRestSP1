@@ -3,3 +3,4 @@
 <button type="button" onclick="JSONTestUser()">JSONTestUser</button>
 <button type="button" onclick="JSONTestSearchData()">JSONTestSearchData</button>
 <button type="button" onclick="JSONTestSortData()">JSONTestSortData</button>
+<button type="button" onclick="JSONTestJson()">JSONTestJson</button>
