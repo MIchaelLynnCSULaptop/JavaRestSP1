@@ -1,5 +1,7 @@
 package edu.csu2017fa314.T30.Model;
 
+import com.google.gson.Gson;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -7,19 +9,25 @@ public class DataHandling {
 
     public String[][] data;
     Model myModel;
+    Gson gson;
+
     public DataHandling ()
     {
         data = new String[3][];
         myModel = new Model();
         myModel.readData();
         data = myModel.buildItinerary();
+        gson = new Gson();
     }
 
-    public String[][] getAllData() {
-        return data;
+    public String getAllData() {
+        // Convert Java objects to JSON
+        String test = gson.toJson(data);
+        System.out.println(test);
+        return test;
     }
 
-    public String[] searchData(String searchVal) {
+    public String search(String searchVal) {
         String[] result = new String[3];
 
         // get single object entry
@@ -28,10 +36,12 @@ public class DataHandling {
                 result = Arrays.copyOf(data[i], 3);
             }
         }
-     return result;
+        String test = gson.toJson(result);
+        System.out.println(test);
+     return test;
     }
 
-    public String[] sort(String searchVal) {
+    public String sort(String searchVal) {
         String[] result = new String[3];
 
         // get single object entry
@@ -41,7 +51,9 @@ public class DataHandling {
             }
         }
         Arrays.sort(result);
-        return result;
+        String test = gson.toJson(result);
+        System.out.println(test);
+        return test;
     }
 
 

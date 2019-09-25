@@ -31,11 +31,7 @@ public class DataController {
         myModel = new DataHandling();
 
         post("/get", (request, response) -> {
-            System.out.println("datahere");
-            String[] result = myModel.searchData("Echo Brewing Company");
-            // convert to json format
-            // String mybuiltItinerary = gson.toJson(myModel.buildItinerary());
-            //  System.out.println(Arrays.toString(result) + "here");
+
             Map<String, DataHandling> view = new HashMap<String, DataHandling>();
             view.put("message", myModel);
             return new VelocityTemplateEngine(ve).render(
@@ -51,6 +47,13 @@ public class DataController {
                     new ModelAndView(view, "data.vm"));
         });
 
+        post("/search", (request, response) -> {
+            System.out.println("datahere");
+            Map<String, DataHandling> view = new HashMap<String, DataHandling>();
+            view.put("message", myModel);
+            return new VelocityTemplateEngine(ve).render(
+                    new ModelAndView(view, "search.vm"));
+        });
 
     }
 }
