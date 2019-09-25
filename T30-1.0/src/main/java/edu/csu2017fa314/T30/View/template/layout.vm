@@ -2,6 +2,49 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
 
+<script>
+
+    JSONTestJson = function() {
+
+        var myData = {
+            "id": "1012",
+            "email": "your-email@your-domain.com",
+            "firstName": "Mac",
+            "lastName": "Mason1"
+        };
+
+        // var me = JSON.stringify(myData)
+        // window.alert(me);
+
+        $.ajax({
+            url: "http://localhost:4567/jsonMultiString",
+            type: "GET",
+            dataType: "json",  // sending this type back
+            data: JSON.stringify(myData),
+            success: function (result) {
+                var myJSON = result;
+                window.alert(myJSON);
+                document.getElementById("demo").innerHTML = myJSON;
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    };
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 

@@ -22,9 +22,9 @@ public class DataHandling {
 
     public String getAllData() {
         // Convert Java objects to JSON
-        String test = gson.toJson(data);
-        System.out.println(test);
-        return test;
+        String json = gson.toJson(data);
+        System.out.println(json);
+        return json;
     }
 
     public String search(String searchVal) {
