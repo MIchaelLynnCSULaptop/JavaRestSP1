@@ -78,6 +78,25 @@
 
 </script>
 
+<script>
+
+    JSONTestSearchData = function() {
+
+        $.ajax({
+            url: "http://localhost:4567/search",
+            type: "POST",
+            success: function (result) {
+                window.alert(result);
+                $("div#content").replaceWith(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    };
+
+</script>
 
 <div id="header">
     ...some content that's to be updated Header...
@@ -89,16 +108,8 @@
 
 <p id="demo"></p>
 
-<div id="content">
-    $message
-    ...some content that's to be updated...
-    <ul>
-        #foreach( $index in $message )
-            <li>$index</li>
-        #end
-    </ul>
 
-</div>
+<div id="content"></div>
 
 
 <div id="footer">

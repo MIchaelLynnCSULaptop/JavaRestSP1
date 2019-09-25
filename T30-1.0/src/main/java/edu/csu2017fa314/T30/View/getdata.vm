@@ -1,20 +1,26 @@
 <html>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <body>
-
+    #set( $a = $message.getAllData() )
 
 <p id="demo"></p>
 
 <div id="content">
+
     ...some content that's to be updated...
     <ul>
+        <script>
 
-        #foreach( $index in $message.searchData("Echo Brewing Company"))
-            <li>$index</li>
-        #end
+       //var test = '$a';
+       var myJSON = JSON.stringify($a);
+       console.log(test);
+       var test2 = JSON.parse(test);
+       document.getElementById("demo").innerHTML = test2[0]
+        </script>
     </ul>
 
 </div>
+
 
 
 </body>
