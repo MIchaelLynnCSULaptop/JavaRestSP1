@@ -7,12 +7,12 @@ import org.junit.Test;
 
 public class TestModel 
 {
-    private Model m;
+    private Data m;
 
     @Before
     public void setUp() throws Exception 
     {
-        m = new Model();
+        m = new Data();
     }
 
     @Test 

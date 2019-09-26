@@ -1,12 +1,11 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.DataHandling;
+import edu.csu2017fa314.T30.Model.DataService;
 import org.apache.velocity.app.VelocityEngine;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -17,7 +16,7 @@ public class LayoutController {
 
     VelocityEngine ve;
     Properties props;
-    DataHandling myModel;
+    DataService myModel;
     Gson gson;
 
     public LayoutController() {
@@ -28,7 +27,7 @@ public class LayoutController {
         props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
         ve.init(props);
 
-        myModel = new DataHandling();
+        myModel = new DataService();
         gson = new Gson();
 
         get("/layout", (request, response) -> {

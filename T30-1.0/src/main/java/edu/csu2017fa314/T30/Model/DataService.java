@@ -3,18 +3,17 @@ package edu.csu2017fa314.T30.Model;
 import com.google.gson.Gson;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
-public class DataHandling {
+public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
 
     public String[][] data;
-    Model myModel;
+    Data myModel;
     Gson gson;
 
-    public DataHandling ()
+    public DataService()
     {
         data = new String[3][];
-        myModel = new Model();
+        myModel = new Data();
         myModel.readData();
         data = myModel.buildItinerary();
         gson = new Gson();

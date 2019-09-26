@@ -13,7 +13,7 @@
 
        // wtf is the problem with this volocity shit to javascript
        var myJSON = '$a';
-       // single quote is for pussies
+       // single quote are for pussies
        var myJSON2 = JSON.parse(myJSON)
        myJSON3 = myJSON2[0]
        console.log(myJSON3);
