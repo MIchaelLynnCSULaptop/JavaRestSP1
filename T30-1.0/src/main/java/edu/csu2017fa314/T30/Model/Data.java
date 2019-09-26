@@ -7,13 +7,13 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.lang.Math;
 
-public class Model
+public class Data
 {
    private int[] numbers;
    private ArrayList<String[]> locations;
    private String d = "";
 
-   public Model ()
+   public Data()
    {
       numbers = new int[] {0, 1, 2, 3, 4, 5};
       locations = new ArrayList<>();
