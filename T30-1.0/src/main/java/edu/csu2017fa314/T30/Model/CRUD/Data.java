@@ -1,4 +1,4 @@
-package edu.csu2017fa314.T30.Model;
+package edu.csu2017fa314.T30.Model.CRUD;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.BufferedReader;

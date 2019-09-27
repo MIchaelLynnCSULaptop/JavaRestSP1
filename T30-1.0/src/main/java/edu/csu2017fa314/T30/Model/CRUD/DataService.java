@@ -1,10 +1,10 @@
-package edu.csu2017fa314.T30.Model;
+package edu.csu2017fa314.T30.Model.CRUD;
 
 import com.google.gson.Gson;
 
 import java.util.Arrays;
 
-public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
+public class DataService extends BaseCRUD {
 
     public String[][] data;
     Data myModel;
@@ -19,6 +19,7 @@ public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
         gson = new Gson();
     }
 
+    @Override
     public String getAllData() {
         // Convert Java objects to JSON
         String json = gson.toJson(data);
@@ -26,6 +27,7 @@ public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
         return json;
     }
 
+    @Override
     public String search(String searchVal) {
         String[] result = new String[3];
 
@@ -40,6 +42,7 @@ public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
      return test;
     }
 
+    @Override
     public String sort(String searchVal) {
         String[] result = new String[3];
 
@@ -54,8 +57,5 @@ public class DataService implements BaseInterfaceCrud, InterfaceCrudData {
         System.out.println(test);
         return test;
     }
-
-
-
 
 }
