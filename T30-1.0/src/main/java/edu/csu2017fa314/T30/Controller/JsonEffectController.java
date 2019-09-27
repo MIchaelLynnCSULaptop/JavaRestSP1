@@ -39,7 +39,8 @@ public class JsonEffectController {
             usersContain.addUser(u1);
             usersContain.addUser(u2);
             usersContain.addUser(u3);
-           // String json = usersContain.getAllData();
+            String json2 = datahandle.getAllData();
+            System.out.println(json2);
             String json = usersContain.search("email1");
             System.out.println(json);
             return json;
