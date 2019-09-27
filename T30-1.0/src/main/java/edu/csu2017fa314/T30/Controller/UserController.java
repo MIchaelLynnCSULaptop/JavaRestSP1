@@ -1,9 +1,9 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.InterfaceCrudUser;
-import edu.csu2017fa314.T30.Model.User;
-import edu.csu2017fa314.T30.Model.UserService;
+import edu.csu2017fa314.T30.Model.USER.BaseUser;
+import edu.csu2017fa314.T30.Model.USER.User;
+import edu.csu2017fa314.T30.Model.USER.UserService;
 import org.apache.velocity.app.VelocityEngine;
 import java.util.Properties;
 import static spark.Spark.*;
@@ -15,7 +15,7 @@ public class UserController {
     Properties props;
     Gson gson;
     int test = 0;
-    InterfaceCrudUser myUsersInterface;
+    BaseUser myUsersInterface;
 
 
 

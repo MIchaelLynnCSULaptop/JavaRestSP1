@@ -1,10 +1,12 @@
-package edu.csu2017fa314.T30.Model;
+package edu.csu2017fa314.T30.Model.USER;
 
 import com.google.gson.Gson;
+import edu.csu2017fa314.T30.Model.USER.BaseUser;
+import edu.csu2017fa314.T30.Model.USER.User;
 
 import java.util.ArrayList;
 
-public class UserService implements BaseInterfaceCrud, InterfaceCrudUser {
+public class UserService extends BaseUser {
 
     ArrayList<User> users;
     Gson gson;
@@ -14,6 +16,7 @@ public class UserService implements BaseInterfaceCrud, InterfaceCrudUser {
         gson = new Gson();
     }
 
+    @Override
     public String getAllData() {
         // Convert Java objects to JSON
         String json = gson.toJson(users);
@@ -21,6 +24,7 @@ public class UserService implements BaseInterfaceCrud, InterfaceCrudUser {
         return json;
     }
 
+    @Override
     public String search(String searchVal) {
        User myUser = new User();
 
@@ -35,6 +39,7 @@ public class UserService implements BaseInterfaceCrud, InterfaceCrudUser {
         return json;
     }
 
+    @Override
     public void addUser (User user){
         users.add(user);
     }

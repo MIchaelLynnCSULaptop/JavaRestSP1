@@ -1,8 +1,10 @@
 package edu.csu2017fa314.T30.Controller;
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.DataService;
-import edu.csu2017fa314.T30.Model.User;
-import edu.csu2017fa314.T30.Model.UserService;
+import edu.csu2017fa314.T30.Model.CRUD.BaseCRUD;
+import edu.csu2017fa314.T30.Model.CRUD.DataService;
+import edu.csu2017fa314.T30.Model.USER.BaseUser;
+import edu.csu2017fa314.T30.Model.USER.User;
+import edu.csu2017fa314.T30.Model.USER.UserService;
 import org.apache.velocity.app.VelocityEngine;
 
 
@@ -18,8 +20,8 @@ public class JsonEffectController {
     Properties props;
     Gson gson;
     int test = 0;
-    DataService datahandle;
-    UserService usersContain;
+    BaseCRUD datahandle;
+    BaseUser usersContain;
 
     public JsonEffectController() {
 
