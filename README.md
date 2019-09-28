@@ -23,10 +23,10 @@ $ java -cp target\T30-0.0.1-SNAPSHOT.jar edu.csu2017fa314.T30.TripCo
 load main class edu.csu2017fa314.T30.TripCo
 
 
-#EndPoints (Client)
+#Run Frontend (Client)
 
 Spark(Controller) and Spring Framework(View)
 
-Run Fiddler is one solution
+Run Fiddler to check endpoints
 
-User entry point http://localhost:4567/layout in browser in another
+User entry point http://localhost:4567/layout in browser to check routes
