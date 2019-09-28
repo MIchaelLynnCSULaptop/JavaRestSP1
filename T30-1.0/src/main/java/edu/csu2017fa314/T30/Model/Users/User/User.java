@@ -1,4 +1,4 @@
-package edu.csu2017fa314.T30.Model.USER;
+package edu.csu2017fa314.T30.Model.Users.User;
 
 
 public class User {

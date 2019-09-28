@@ -1,8 +1,9 @@
-package edu.csu2017fa314.T30.Model.USER;
+package edu.csu2017fa314.T30.Model.Users.User;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.USER.BaseUser;
-import edu.csu2017fa314.T30.Model.USER.User;
+import edu.csu2017fa314.T30.Model.Users.Guest.Guest;
+import edu.csu2017fa314.T30.Model.Users.User.BaseUser;
+import edu.csu2017fa314.T30.Model.Users.User.User;
 
 import java.util.ArrayList;
 
@@ -44,4 +45,10 @@ public class UserService extends BaseUser {
         users.add(user);
     }
 
+    @Override
+    public String Bio() {
+        return "BIO";
+    }
+
+    public void addUser (Guest user){};
 }
