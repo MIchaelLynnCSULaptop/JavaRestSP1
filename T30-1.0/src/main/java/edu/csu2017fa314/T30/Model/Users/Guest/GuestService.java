@@ -1,0 +1,48 @@
+package edu.csu2017fa314.T30.Model.Users.Guest;
+
+import com.google.gson.Gson;
+import edu.csu2017fa314.T30.Model.Users.Guest.BaseGuest;
+import edu.csu2017fa314.T30.Model.Users.Guest.Guest;
+import edu.csu2017fa314.T30.Model.Users.User.User;
+
+import java.util.ArrayList;
+
+public class GuestService extends BaseGuest {
+
+    ArrayList<Guest> users;
+    Gson gson;
+
+    public GuestService(){
+        users = new ArrayList<Guest>();
+        gson = new Gson();
+    }
+
+    @Override
+    public String getAllData() {
+        // Convert Java objects to JSON
+        String json = gson.toJson(users);
+        System.out.println(json);
+        return json;
+    }
+
+    @Override
+    public String search(String searchVal) {
+        Guest myUser = new Guest();
+
+        // get single object entry
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).email.equals(searchVal)) {
+                myUser = users.get(i);
+            }
+        }
+        String json = gson.toJson(myUser);
+        System.out.println(json);
+        return json;
+    }
+
+    @Override
+    public void addUser (Guest user){
+        users.add(user);
+    }
+    public void addUser (User user){};
+}

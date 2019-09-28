@@ -1,9 +1,9 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.USER.BaseUser;
-import edu.csu2017fa314.T30.Model.USER.User;
-import edu.csu2017fa314.T30.Model.USER.UserService;
+import edu.csu2017fa314.T30.Model.Users.User.BaseUser;
+import edu.csu2017fa314.T30.Model.Users.User.User;
+import edu.csu2017fa314.T30.Model.Users.User.UserService;
 import org.apache.velocity.app.VelocityEngine;
 import java.util.Properties;
 import static spark.Spark.*;
