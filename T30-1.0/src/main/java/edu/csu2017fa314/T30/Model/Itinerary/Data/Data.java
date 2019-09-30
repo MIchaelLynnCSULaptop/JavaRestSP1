@@ -1,9 +1,8 @@
-package edu.csu2017fa314.T30.Model.CRUD;
+package edu.csu2017fa314.T30.Model.Itinerary.Data;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.HashMap;
 import java.lang.Math;
 

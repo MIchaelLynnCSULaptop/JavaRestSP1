@@ -1,13 +1,12 @@
 package edu.csu2017fa314.T30.Model.Users.Guest;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.Users.Guest.BaseGuest;
-import edu.csu2017fa314.T30.Model.Users.Guest.Guest;
-import edu.csu2017fa314.T30.Model.Users.User.User;
+import edu.csu2017fa314.T30.Model.Users.BasePurchase;
+import edu.csu2017fa314.T30.Model.Users.BaseService;
 
 import java.util.ArrayList;
 
-public class GuestService extends BaseGuest {
+public class GuestService extends BaseService<Guest> implements BasePurchase {
 
     ArrayList<Guest> users;
     Gson gson;
@@ -44,5 +43,9 @@ public class GuestService extends BaseGuest {
     public void addUser (Guest user){
         users.add(user);
     }
-    public void addUser (User user){};
+
+    @Override
+    public String purshase() {
+        return "GuestPurchase";
+    }
 }

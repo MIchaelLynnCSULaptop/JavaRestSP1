@@ -1,7 +1,7 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.CRUD.DataService;
+import edu.csu2017fa314.T30.Model.Itinerary.Data.DataService;
 import org.apache.velocity.app.VelocityEngine;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;

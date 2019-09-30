@@ -1,6 +1,7 @@
-package edu.csu2017fa314.T30.Model.CRUD;
+package edu.csu2017fa314.T30.Model.Itinerary.Data;
 
 import com.google.gson.Gson;
+import edu.csu2017fa314.T30.Model.Itinerary.BaseCRUD;
 
 import java.util.Arrays;
 
