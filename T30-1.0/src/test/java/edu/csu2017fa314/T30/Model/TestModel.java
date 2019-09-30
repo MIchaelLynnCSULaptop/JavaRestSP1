@@ -1,7 +1,7 @@
 package edu.csu2017fa314.T30.Model;
 import static org.junit.Assert.*;
 
-import edu.csu2017fa314.T30.Model.CRUD.Data;
+import edu.csu2017fa314.T30.Model.Itinerary.Data.Data;
 import org.junit.Before;
 import org.junit.Test;
 

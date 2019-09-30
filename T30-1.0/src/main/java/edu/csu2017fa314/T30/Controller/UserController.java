@@ -1,7 +1,6 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.Users.User.BaseUser;
 import edu.csu2017fa314.T30.Model.Users.User.User;
 import edu.csu2017fa314.T30.Model.Users.User.UserService;
 import org.apache.velocity.app.VelocityEngine;
@@ -15,7 +14,7 @@ public class UserController {
     Properties props;
     Gson gson;
     int test = 0;
-    BaseUser myUsersInterface;
+    UserService myUsersInterface;
 
 
 

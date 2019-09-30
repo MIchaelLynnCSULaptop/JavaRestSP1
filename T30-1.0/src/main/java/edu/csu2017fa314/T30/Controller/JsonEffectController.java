@@ -1,11 +1,9 @@
 package edu.csu2017fa314.T30.Controller;
 import com.google.gson.Gson;
-import edu.csu2017fa314.T30.Model.Users.Guest.BaseGuest;
-import edu.csu2017fa314.T30.Model.CRUD.BaseCRUD;
-import edu.csu2017fa314.T30.Model.CRUD.DataService;
+import edu.csu2017fa314.T30.Model.Itinerary.BaseCRUD;
+import edu.csu2017fa314.T30.Model.Itinerary.Data.DataService;
 import edu.csu2017fa314.T30.Model.Users.Guest.Guest;
 import edu.csu2017fa314.T30.Model.Users.Guest.GuestService;
-import edu.csu2017fa314.T30.Model.Users.User.BaseUser;
 import edu.csu2017fa314.T30.Model.Users.User.User;
 import edu.csu2017fa314.T30.Model.Users.User.UserService;
 import org.apache.velocity.app.VelocityEngine;
@@ -22,10 +20,11 @@ public class JsonEffectController {
     VelocityEngine ve;
     Properties props;
     Gson gson;
-    int test = 0;
+
     BaseCRUD datahandle;
-    BaseUser usersContain;
-    BaseGuest guestContain;
+    UserService usersContain;
+    GuestService guestContain;
+
     public JsonEffectController() {
 
         gson = new Gson();
@@ -55,6 +54,11 @@ public class JsonEffectController {
 
 //            String json = datahandle.getAllData();
 //            System.out.println(json);
+
+            System.out.println(usersContain.purshase());
+            System.out.println(guestContain.purshase());
+
+            System.out.println(usersContain.printUsers());
 
             String json = usersContain.search("email1");
             System.out.println(json);
