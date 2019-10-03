@@ -43,6 +43,41 @@
 
 
 
+<script>
+
+    $(document).ready(function(){
+        $("#JSONTestUserJquery").click(function(){
+           var id_post = $("#JSONTestUserJquery").attr("value")
+            window.alert(id_post);
+
+            var myData = {
+                "id": "3000",
+                "email": "your-email@your-domain.com",
+                "firstName": id_post,
+                "lastName": "Mason1"
+            };
+
+            // var me = JSON.stringify(myData)
+            // window.alert(me);
+            $.ajax({
+                url: "http://localhost:4567/user",
+                type: "POST",
+                dataType: "json",  // expecting this type back
+                contentType: 'application/json',
+                data: JSON.stringify(myData),
+                success: function (result) {
+                    var myJSON = JSON.stringify(result);
+                    window.alert(myJSON);
+                    document.getElementById("demo").innerHTML = myJSON;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        });
+    });
+</Script>
 
 
 
@@ -51,7 +86,7 @@
     JSONTestUser = function() {
 
         var id_post = document.getElementById("name").value;
-        window.alert(id_post);
+        window.alert("JSONTestUserJavaSCript");
 
         var myData = {
             "id": "1012",
