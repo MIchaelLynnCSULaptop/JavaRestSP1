@@ -1,12 +1,15 @@
 <h1>My jQuery JSON Web Page</h1>
 <input type="button" value = "JSONTestGetData" onclick="JSONTestGetData()">
 
-<input type="button" id = "name" value = "JSONTestUser" onclick="JSONTestUser()">
+<input type="button" id = "JSONTestUserJavaSCript" value = "JSONTestUserJavaSCript" onclick="JSONTestUser()">
+
+<input type="button" id = "JSONTestUserJquery" value = "JSONTestUserJquery">
 
 <form class="form" action="" method="get">
     <input type="text" id="name" value = "Mike">
     <input type="button" value = "Send" onclick="JSONTestUser()">
 </form>
+
 
 <input type="button" value = "JSONTestSearchData" onclick="JSONTestSearchData()">
 <input type="button" value = "JSONTestSortData" onclick="JSONTestSortData()">
