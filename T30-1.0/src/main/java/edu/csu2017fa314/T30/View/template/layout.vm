@@ -84,15 +84,19 @@
 <script>
 
     JSONTestUser = function() {
+        window.alert("here");
+        var id_post = document.getElementById("id").value;
+        var name_post = document.getElementById("name").value;
+        var last_post =  document.getElementById("last").value;
+        var email_post = document.getElementById("email").value;
 
-        var id_post = document.getElementById("name").value;
-        window.alert("JSONTestUserJavaSCript");
+        window.alert(id_post + name_post + last_post + email_post);
 
         var myData = {
-            "id": "1012",
-            "email": "your-email@your-domain.com",
-            "firstName": id_post,
-            "lastName": "Mason1"
+            "id": id_post,
+            "email": email_post,
+            "firstName": name_post,
+            "lastName": last_post
         };
 
     // var me = JSON.stringify(myData)
