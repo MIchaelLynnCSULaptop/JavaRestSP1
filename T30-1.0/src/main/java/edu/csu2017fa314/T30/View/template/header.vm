@@ -1,6 +1,13 @@
 <h1>My jQuery JSON Web Page</h1>
-<button type="button" onclick="JSONTestGetData()">JSONTestGetData</button>
-<button type="button" onclick="JSONTestUser()">JSONTestUser</button>
-<button type="button" onclick="JSONTestSearchData()">JSONTestSearchData</button>
-<button type="button" onclick="JSONTestSortData()">JSONTestSortData</button>
-<button type="button" onclick="JSONTestJson()">JSONTestJson</button>
+<input type="button" value = "JSONTestGetData" onclick="JSONTestGetData()">
+
+<input type="button" id = "name" value = "JSONTestUser" onclick="JSONTestUser()">
+
+<form class="form" action="" method="get">
+    <input type="text" id="name" value = "Mike">
+    <input type="button" value = "Send" onclick="JSONTestUser()">
+</form>
+
+<input type="button" value = "JSONTestSearchData" onclick="JSONTestSearchData()">
+<input type="button" value = "JSONTestSortData" onclick="JSONTestSortData()">
+<input type="button" value = "JSONTestJson" onclick="JSONTestJson()">
