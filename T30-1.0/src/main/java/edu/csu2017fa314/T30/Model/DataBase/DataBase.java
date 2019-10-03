@@ -17,7 +17,7 @@ public class DataBase {
         Connection conn = null;
         ResultSet resultSet = null;
 
-        // Create a variable for the connection string.
+        // Create a variable for the connection strings.
 
         try {
 
