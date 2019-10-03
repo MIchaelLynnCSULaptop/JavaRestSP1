@@ -1,9 +1,12 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
+import edu.csu2017fa314.T30.Model.DataBase.DataBase;
 import edu.csu2017fa314.T30.Model.Users.User.User;
 import edu.csu2017fa314.T30.Model.Users.User.UserService;
 import org.apache.velocity.app.VelocityEngine;
+
+import java.sql.SQLException;
 import java.util.Properties;
 import static spark.Spark.*;
 
@@ -15,19 +18,26 @@ public class UserController {
     Gson gson;
     int test = 0;
     UserService myUsersInterface;
-
+    DataBase myDB;
 
 
     public UserController() {
 
     gson = new Gson();
     myUsersInterface = new UserService();
+    myDB = new DataBase();
+
 
     post("/user", (request, response) ->{
         response.status(200);
         response.type("application/json");
         User user = new Gson().fromJson(request.body(), User.class);
-        String json = gson.toJson(user.id);
+        try {
+            myDB.myUserDataBase(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String json = gson.toJson(user);
         System.out.println(json);
         return json;
     });
