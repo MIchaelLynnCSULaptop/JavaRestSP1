@@ -32,6 +32,7 @@ public class UserController {
         response.status(200);
         response.type("application/json");
         User user = new Gson().fromJson(request.body(), User.class);
+
         try {
             myDB.myUserDataBase(user);
         } catch (SQLException e) {
