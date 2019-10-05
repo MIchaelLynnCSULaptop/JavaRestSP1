@@ -1,5 +1,4 @@
-package edu.csu2017fa314.T30.Model;
-
+package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
 import edu.csu2017fa314.T30.TripCo;
@@ -17,12 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 
-public class RestServiceTest {
-
+public class LayoutControllerTest {
 
     @BeforeClass
     public static void beforeClass() throws SQLException {
@@ -36,25 +33,11 @@ public class RestServiceTest {
 
     @Test
     public void layout() {
-        TestResponse res = request("/layout");
+        LayoutControllerTest.TestResponse res = request("/layout");
         assertEquals(200, res.status);
     }
 
-//    @Test
-//    public void user() {
-//        TestResponse res = request("/users?firstName=Mike&lastName=Lynn&Email=email");
-//        Map<String, String> json = res.json();
-//        assertEquals(200, res.status);
-//        assertEquals("Mike", json.get("firstName"));
-//        assertEquals("Lynn", json.get("lastName"));
-//        assertEquals("Email", json.get("email"));
-//        assertNotNull(json.get("id"));
-//
-//    }
-
-
-
-    private TestResponse request(String path) {
+    private LayoutControllerTest.TestResponse request(String path) {
         try {
             URL url = new URL("http://localhost:4567" + path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -62,7 +45,7 @@ public class RestServiceTest {
             connection.setDoOutput(true);
             connection.connect();
             String body = IOUtils.toString(connection.getInputStream());
-            return new TestResponse(connection.getResponseCode(), body);
+            return new LayoutControllerTest.TestResponse(connection.getResponseCode(), body);
         } catch (IOException e) {
             e.printStackTrace();
             fail("Sending request failed: " + e.getMessage());
@@ -85,5 +68,6 @@ public class RestServiceTest {
             return new Gson().fromJson(body, HashMap.class);
         }
     }
+
 
 }
