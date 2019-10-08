@@ -67,13 +67,9 @@ public class DataBase {
             if (conn != null) {
                 System.out.println("Successfully connected to MySQL database test");
                 // Create and execute a SELECT SQL statement.
-                myUsers.firstName = "\'" + myUsers.firstName + "\'";
-                myUsers.lastName = "\'" + myUsers.lastName + "\'";
-                myUsers.email = "\'" + myUsers.email + "\'";
-
+                String testing = myUsers.firstName;
                 String selectSql = "insert into ExampleUsers (ExampleUsers.[firstName], ExampleUsers.[lastName], ExampleUsers.[email])\n" +
-                        "                   values ("+ myUsers.firstName +", "+ myUsers.lastName +", "+ myUsers.email +")";
-
+                        "                   values ('"+ myUsers.firstName +"', '"+ myUsers.lastName +"', '"+ myUsers.email +"')";
                 System.out.println(selectSql);
                // executeUpdate method execute sql statements that insert/update/delete data at the database.
                // This method return int value representing number of records affected; Returns 0 if the query returns nothing. The method accepts only non-select statements.

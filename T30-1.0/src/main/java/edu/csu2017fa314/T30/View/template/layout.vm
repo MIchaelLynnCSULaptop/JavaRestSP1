@@ -6,12 +6,12 @@
 
     JSONTestJson = function() {
 
-        var myData = new Object();
-        myData.id = "1012";
-        myData.email = "your-email@your-domain.com";
-        myData.firstName = Mac;
-        myData.lastName = "Mason1";
-
+        var myData = {
+            "id": "1012",
+            "email": "your-email@your-domain.com",
+            "firstName": "Mac",
+            "lastName": "Mason1"
+        };
 
         // var me = JSON.stringify(myData)
         // window.alert(me);
@@ -50,11 +50,12 @@
            var id_post = $("#JSONTestUserJquery").attr("value")
             window.alert(id_post);
 
-            var myData = new Object();
-            myData.id = "3000";
-            myData.email = "your-email@your-domain.com";
-            myData.firstName = id_post;
-            myData.lastName = "Mason1";
+            var myData = {
+                "id": "3000",
+                "email": "your-email@your-domain.com",
+                "firstName": id_post,
+                "lastName": "Mason1"
+            };
 
             // var me = JSON.stringify(myData)
             // window.alert(me);
@@ -91,21 +92,17 @@
 
         window.alert(id_post + name_post + last_post + email_post);
 
-        var myData = new Object();
-        myData.id = id_post;
-        myData.email = email_post;
-        myData.firstName = name_post;
-        myData.lastName = last_post;
+        var myData = {
+            "id": id_post,
+            "email": email_post,
+            "firstName": name_post,
+            "lastName": last_post
+        };
 
-        var convert = JSON.stringify(myData);
-        window.alert(convert);
+    // var me = JSON.stringify(myData)
+    // window.alert(me);
 
-        var test = "{ \"name\":\"John\", \"age\":30, \"car\":null }";
-        var test2 = "{ \"name\":\"John\", \"age\":" + id_post + ", \"car\":null }";
-        window.alert(test);
-        window.alert(test2);
-
-        $.ajax({
+    $.ajax({
         url: "http://localhost:4567/user",
         type: "POST",
         dataType: "json",  // expecting this type back
