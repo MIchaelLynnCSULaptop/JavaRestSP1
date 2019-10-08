@@ -77,7 +77,7 @@ public class DataBase {
                 System.out.println(selectSql);
                // executeUpdate method execute sql statements that insert/update/delete data at the database.
                // This method return int value representing number of records affected; Returns 0 if the query returns nothing. The method accepts only non-select statements.
-                resultSet = statement.executeUpdate (selectSql);
+                resultSet = statement.executeUpdate(selectSql);
                 System.out.println(resultSet);
 
             }

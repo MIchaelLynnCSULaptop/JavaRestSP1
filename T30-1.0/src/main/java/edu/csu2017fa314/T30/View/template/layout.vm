@@ -45,6 +45,7 @@
 
 <script>
 
+
     $(document).ready(function(){
         $("#JSONTestUserJquery").click(function(){
            var id_post = $("#JSONTestUserJquery").attr("value")
@@ -52,22 +53,23 @@
 
             var myData = new Object();
             myData.id = "3000";
-            myData.email = "your-email@your-domain.com";
+            myData.email = "your-email";
             myData.firstName = id_post;
             myData.lastName = "Mason1";
 
-            // var me = JSON.stringify(myData)
-            // window.alert(me);
+            window.alert(myData.id);
+
+            var obj = JSON.parse("{\"id\":\"3000\",\"firstName\":\"\u0027Mike\u0027\",\"lastName\":\"\u0027Lynn\u0027\",\"email\":\"\u0027emails\u0027\"}");
+            window.alert(obj.id);
+
             $.ajax({
                 url: "http://localhost:4567/user",
                 type: "POST",
-                dataType: "json",  // expecting this type back
-                contentType: 'application/json',
-                data: JSON.stringify(myData),
-                success: function (result) {
-                    var myJSON = JSON.stringify(result);
-                    window.alert(myJSON);
-                    document.getElementById("demo").innerHTML = myJSON;
+                data: JSON.stringify(myData),   // serialize object to send
+                dataType: "json",               // ajax converts response to json object
+                success: function (response) {
+                    window.alert(response.id + "sdfsdfs");
+                    document.getElementById("demo").innerHTML = response.id;
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);

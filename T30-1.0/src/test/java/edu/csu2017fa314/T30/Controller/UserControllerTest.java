@@ -1,6 +1,7 @@
 package edu.csu2017fa314.T30.Controller;
 
 import com.google.gson.Gson;
+import edu.csu2017fa314.T30.Model.Users.User.User;
 import edu.csu2017fa314.T30.TripCo;
 import org.json.JSONObject;
 import org.junit.AfterClass;
@@ -33,23 +34,25 @@ public class UserControllerTest {
 
     @Test
     public void user() {
-        UserControllerTest.TestResponse res = request("/user");
-        assertEquals(200, res.status);
 
+        JSONObject myData   = new JSONObject();
+        myData.put("id","3000");
+        myData.put("email","emails");
+        myData.put("firstName","Mike");
+        myData.put("lastName","Lynn");
+        String json = myData.toString();
+        UserControllerTest.TestResponse res = request("/user", json);
+        JSONObject myResponse = new JSONObject(res.body.toString() );
+        System.out.println("res fghfghbody" + myResponse + "testset");
+        User user = new Gson().fromJson(res.body, User.class);
+        assertEquals(200, res.status);
+        assertEquals(user.id, "3000");
     }
 
-    private UserControllerTest.TestResponse request(String path) {
+    private UserControllerTest.TestResponse request(String path, String json) {
 
 
         try {
-
-            JSONObject myData   = new JSONObject();
-            myData.put("id","3000");
-            myData.put("email","emails");
-            myData.put("firstName","Mike");
-            myData.put("lastName","Lynn");
-
-            String myObj = myData.toString();
 
             URL url = new URL("http://localhost:4567" + path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -58,7 +61,7 @@ public class UserControllerTest {
             connection.setDoOutput(true);
 
             OutputStream os = connection.getOutputStream();
-            os.write(myObj.getBytes("UTF-8"));
+            os.write(json.getBytes("UTF-8"));
             os.close();
 
             connection.connect();
