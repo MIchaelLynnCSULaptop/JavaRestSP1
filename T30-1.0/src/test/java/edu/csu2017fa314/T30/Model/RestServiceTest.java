@@ -1,25 +1,28 @@
-package edu.csu2017fa314.T30.Controller;
+package edu.csu2017fa314.T30.Model;
+
 
 import com.google.gson.Gson;
 import edu.csu2017fa314.T30.TripCo;
-import org.json.JSONObject;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import spark.Spark;
 import spark.utils.IOUtils;
+
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 
-public class UserControllerTest {
+public class RestServiceTest {
+
 
     @BeforeClass
     public static void beforeClass() throws SQLException {
@@ -32,38 +35,34 @@ public class UserControllerTest {
     }
 
     @Test
-    public void user() {
-        UserControllerTest.TestResponse res = request("/user");
+    public void layout() {
+        TestResponse res = request("/layout");
         assertEquals(200, res.status);
-
     }
 
-    private UserControllerTest.TestResponse request(String path) {
+//    @Test
+//    public void user() {
+//        TestResponse res = request("/users?firstName=Mike&lastName=Lynn&Email=email");
+//        Map<String, String> json = res.json();
+//        assertEquals(200, res.status);
+//        assertEquals("Mike", json.get("firstName"));
+//        assertEquals("Lynn", json.get("lastName"));
+//        assertEquals("Email", json.get("email"));
+//        assertNotNull(json.get("id"));
+//
+//    }
 
 
+
+    private TestResponse request(String path) {
         try {
-
-            JSONObject myData   = new JSONObject();
-            myData.put("id","3000");
-            myData.put("email","emails");
-            myData.put("firstName","Mike");
-            myData.put("lastName","Lynn");
-
-            String myObj = myData.toString();
-
             URL url = new URL("http://localhost:4567" + path);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            // Ensure the Connection Will Be Used to Send Content
+            connection.setRequestMethod("GET");
             connection.setDoOutput(true);
-
-            OutputStream os = connection.getOutputStream();
-            os.write(myObj.getBytes("UTF-8"));
-            os.close();
-
             connection.connect();
             String body = IOUtils.toString(connection.getInputStream());
-            return new UserControllerTest.TestResponse(connection.getResponseCode(), body);
+            return new TestResponse(connection.getResponseCode(), body);
         } catch (IOException e) {
             e.printStackTrace();
             fail("Sending request failed: " + e.getMessage());
@@ -86,6 +85,5 @@ public class UserControllerTest {
             return new Gson().fromJson(body, HashMap.class);
         }
     }
-
 
 }
