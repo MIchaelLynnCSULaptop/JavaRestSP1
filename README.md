@@ -12,7 +12,7 @@ https://dzone.com/articles/installing-maven
 
 You have the option of opening this in an IDE like IntelliJ or from the command line.
 
-## command line
+## Command line
 
 First, navigate to the project root (where the pom.xml is located). Run the following to package the code into a jar:
 
