@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1.svg?token=aGqZALLZUKhc6eMrMJtK&branch=master)](https://travis-ci.com/MIchaelLynnCSULaptop/JavaRestSP1)
 
-#Running the backend (server)
+## Running the backend (server)
 
 Install Java JDK
 
@@ -26,7 +26,7 @@ $ java -cp target\T30-0.0.1-SNAPSHOT.jar edu.csu2017fa314.T30.TripCo
 
 Import into IntelliJ as a maven project then run TripCO
 
-#Run Frontend (Client)
+## Run Frontend (Client)
 
 Spark(Controller) and Spring Framework(View)
 
