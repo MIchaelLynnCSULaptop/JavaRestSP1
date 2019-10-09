@@ -66,6 +66,7 @@ public class DataBase {
 
             if (conn != null) {
                 System.out.println("Successfully connected to MySQL database test");
+                System.out.println( "data input" + myUsers.firstName  + myUsers.lastName + myUsers.email);
                 // Create and execute a SELECT SQL statement.
                 myUsers.firstName = "\'" + myUsers.firstName + "\'";
                 myUsers.lastName = "\'" + myUsers.lastName + "\'";
