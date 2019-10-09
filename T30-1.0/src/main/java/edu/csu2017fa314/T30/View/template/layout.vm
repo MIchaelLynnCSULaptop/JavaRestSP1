@@ -63,13 +63,13 @@
             window.alert(obj.id);
 
             $.ajax({
-                url: "http://localhost:4567/user",
+                url: "http://localhost:4567/user/"+ myData.firstName,
                 type: "POST",
                 data: JSON.stringify(myData),   // serialize object to send
-                dataType: "json",               // ajax converts response to json object
+                dataType: "text",               // ajax converts response to json object
                 success: function (response) {
-                    window.alert(response.id + "sdfsdfs");
-                    document.getElementById("demo").innerHTML = response.id;
+                    window.alert(response);
+                    $("div#testname").replaceWith(response);
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);
@@ -84,7 +84,7 @@
 
 <script>
 
-    JSONTestUser = function() {
+    JSONTestUserJavaSCript = function() {
         window.alert("here");
         var id_post = document.getElementById("id").value;
         var name_post = document.getElementById("name").value;
@@ -191,8 +191,9 @@
 
 <div id="header">
     ...some content that's to be updated Header...
-
-    #include("template\header.vm")
+    <div id="testname">
+        #include("template\header.vm")
+    </div>
 
 </div>
 
