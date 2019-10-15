@@ -21,14 +21,14 @@ public class JsonEffectController {
     Properties props;
     Gson gson;
 
-    BaseCRUD datahandle;
+ //   BaseCRUD datahandle;
     UserService usersContain;
     GuestService guestContain;
 
     public JsonEffectController() {
 
         gson = new Gson();
-        datahandle = new DataService();
+       // datahandle = new DataService();
         usersContain = new UserService();
         guestContain = new GuestService();
 
