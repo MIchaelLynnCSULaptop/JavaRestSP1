@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import static spark.Spark.get;
+import static spark.Spark.*;
 
 public class LayoutController {
 
@@ -28,7 +28,7 @@ public class LayoutController {
         props.put("file.resource.loader.path", "C:/Users/aplus/Documents/GitHub/JavaRestSP1/T30-1.0/src/main/java/edu/csu2017fa314/T30/View/");
         ve.init(props);
 
-        myModel = new DataService();
+      //  myModel = new DataService();
         gson = new Gson();
 
         get("/layout", (request, response) -> {
