@@ -20,7 +20,8 @@ $ mvn package
 
 Now run the jar file by running the following code:
 
-$ java -cp target\T30-0.0.1-SNAPSHOT.jar edu.csu2017fa314.T30.TripCo
+$ java -jar target/T30-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
 
 ## IDE
 
