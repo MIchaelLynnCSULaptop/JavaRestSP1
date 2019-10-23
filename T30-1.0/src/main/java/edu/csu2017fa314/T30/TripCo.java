@@ -4,21 +4,14 @@ import edu.csu2017fa314.T30.Controller.JsonEffectController;
 import edu.csu2017fa314.T30.Controller.LayoutController;
 import edu.csu2017fa314.T30.Controller.UserController;
 import edu.csu2017fa314.T30.Model.DataBase.DataBase;
-import static spark.Spark.*;
 
+import static spark.Spark.get;
+import static spark.Spark.port;
 import java.sql.SQLException;
 
 
 public class TripCo
 {
-
-   static int getHerokuAssignedPort() {
-      ProcessBuilder processBuilder = new ProcessBuilder();
-      if (processBuilder.environment().get("PORT") != null) {
-         return Integer.parseInt(processBuilder.environment().get("PORT"));
-      }
-      return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
-   }
 
    private String name = "";
 
@@ -44,8 +37,22 @@ public class TripCo
       this.name = name;
    }
 
+
+   static int getHerokuAssignedPort() {
+      ProcessBuilder processBuilder = new ProcessBuilder();
+      if (processBuilder.environment().get("PORT") != null) {
+         return Integer.parseInt(processBuilder.environment().get("PORT"));
+      }
+      return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+   }
+
+
    public static void main(String[] args) throws SQLException {
-    //  port(8080); // Spark will run on port 8080
+
+      //configure port
+      port(getHerokuAssignedPort());
+      get("/hello", (req, res) -> "Hello Heroku World");
+
 
       DataBase db = new DataBase();
       db.myDataBase();
