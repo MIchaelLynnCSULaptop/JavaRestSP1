@@ -116,6 +116,10 @@
          success: function (result) {
         var myJSON = JSON.stringify(result);
         window.alert(myJSON);
+
+            // The .innerHTML() property work like .html() jQuery method. innerHTML is a JavaScript property.
+           //  The innerHTML property sets and gets the HTML content of matched element.
+
         document.getElementById("demo").innerHTML = myJSON;
     },
     error: function (xhr, ajaxOptions, thrownError) {
@@ -178,6 +182,17 @@
             type: "POST",
             success: function (result) {
                 window.alert(result);
+
+                //   So html() replaces the contents of the element, while replaceWith() replaces the actual element.
+
+                //   <div id="mydiv">Hello World</div>
+                //   $('#mydiv').html('Aloha World');
+                //   <div id="mydiv">Aloha World</div>
+
+                //    <div id="mydiv">Hello World</div>
+                //    $('#mydiv').replaceWith('Aloha World');
+                //    Aloha World
+
                 $("div#content").replaceWith(result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
